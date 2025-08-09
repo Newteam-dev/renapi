@@ -1,9 +1,12 @@
 name: Keep Render API Alive
 
-push:
+on:
+  push:
+    branches:
+      - main
   schedule:
-    - cron: "*/14 * * * *" # chạy mỗi 14 phút
-  workflow_dispatch: # vẫn cho phép chạy thủ công
+    - cron: "*/14 * * * *"
+  workflow_dispatch:
 
 jobs:
   ping:
@@ -11,4 +14,5 @@ jobs:
     steps:
       - name: Ping API
         run: |
-          curl -s https://dev-class-server-nodejs.onrender.com > /dev/null
+          echo "Pinging API..."
+          curl -I https://dev-class-server-nodejs.onrender.com
