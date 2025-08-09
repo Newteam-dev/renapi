@@ -1,6 +1,6 @@
 name: Keep Render API Alive
 
-on:
+push:
   schedule:
     - cron: "*/14 * * * *" # chạy mỗi 14 phút
   workflow_dispatch: # vẫn cho phép chạy thủ công
